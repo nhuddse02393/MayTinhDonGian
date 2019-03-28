@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+            text-align: right;
+            width: 210px;
+        }
+
+        button{
+            height: 50px;
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <td><input id="Main" type="text" align="right" readonly></td>
+    </tr>
+    <tr>
+        <td>
+            <table>
+                <tr>
+                    <td><button id="num1" type="submit" onclick="pushNum(1)">1</button></td>
+                    <td><button id="num2" type="submit" onclick="pushNum(2)">2</button></td>
+                    <td><button id="num3" type="submit" onclick="pushNum(3)">3</button></td>
+                    <td><button id="numPlus" type="submit" onclick="calculate('+')">+</button></td>
+                </tr>
+                <tr>
+                    <td><button id="num4" type="submit" onclick="pushNum(4)">4</button></td>
+                    <td><button id="num5" type="submit" onclick="pushNum(5)">5</button></td>
+                    <td><button id="num6" type="submit" onclick="pushNum(6)">6</button></td>
+                    <td><button id="numSub" type="submit" onclick="calculate('-')">-</button></td>
+                </tr>
+                <tr>
+                    <td><button id="num7" type="submit" onclick="pushNum(7)">7</button></td>
+                    <td><button id="num8" type="submit" onclick="pushNum(8)">8</button></td>
+                    <td><button id="num9" type="submit" onclick="pushNum(9)">9</button></td>
+                    <td><button id="numMul" type="submit" onclick="calculate('*')">X</button></td>
+                </tr>
+                <tr>
+                    <td><button id="numC" type="submit" onclick="pushNumC()">C</button></td>
+                    <td><button id="num0" type="submit" onclick="pushNum(0)">0</button></td>
+                    <td><button id="numRes" type="submit" onclick="res()">=</button></td>
+                    <td><button id="numDiv" type="submit" onclick="calculate('/')">/</button></td>
+                </tr>
+            </table></td>
+    </tr>
+</table>
+
+<script>
+    let main = document.getElementById("Main").value;
+
+    function pushNum(num){
+        main = main + num;
+        document.getElementById("Main").value = "" + main;
+    }
+
+    function pushNumC() {
+        main = 0;
+        document.getElementById("Main").value = main;
+    }
+
+    function calculate(cal) {
+        main = main + "" + cal;
+        document.getElementById("Main").value = main;
+    }
+
+
+    function res() {
+        main = eval(document.getElementById("Main").value);
+        document.getElementById("Main").value = main;
+    }
+
+</script>
+
+</body>
+</html>
